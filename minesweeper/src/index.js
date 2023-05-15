@@ -1,5 +1,6 @@
 import createBoard, { statusTile } from './board.js';
 import './style.css';
+import { markTile } from './markTile.js'
 
 const sweeperTitle = document.createElement("h1");
 const sweeperSubtext = document.createElement("p");
@@ -28,10 +29,10 @@ board.forEach(row => {
         })
         tile.elem.addEventListener("contextmenu", e => {
             e.preventDefault()
+            markTile(tile)
         })
     })
 })
 
 sweeperBoard.style.setProperty("--size", boardS);
 sweeperSpan.textContent = boardMines;
-console.log(board);
