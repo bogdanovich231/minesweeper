@@ -1,6 +1,7 @@
-import createBoard, { statusTile } from './board.js';
+import createBoard from './board.js';
 import './style.css';
-import { markTile } from './markTile.js'
+import { markTile, openTile } from './tile.js'
+import { statusTile } from "./board.js"
 
 const sweeperTitle = document.createElement("h1");
 const sweeperSubtext = document.createElement("p");
@@ -8,7 +9,7 @@ const sweeperBoard = document.createElement("div");
 const sweeperSpan = document.createElement("span");
 
 const boardS = 10;
-const boardMines = 2;
+const boardMines = 10;
 
 sweeperTitle.className = "sweeper_title";
 sweeperSubtext.className = "sweeper_subtext";
@@ -26,13 +27,22 @@ board.forEach(row => {
     row.forEach(tile => {
         sweeperBoard.append(tile.elem)
         tile.elem.addEventListener('click', () => {
+            openTile(board, tile)
         })
         tile.elem.addEventListener("contextmenu", e => {
             e.preventDefault()
             markTile(tile)
+            minesLeft()
         })
     })
 })
 
 sweeperBoard.style.setProperty("--size", boardS);
 sweeperSpan.textContent = boardMines;
+
+function minesLeft() {
+    const markedTiles = board.reduce((count, row) => {
+        return count + row.filter(tile => tile.status === statusTile.MARKED).length
+    }, 0)
+    sweeperSpan.textContent = boardMines - markedTiles
+}
