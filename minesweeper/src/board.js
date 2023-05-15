@@ -1,4 +1,4 @@
-import createMine from './mine.js'
+import { createMine, positionMatch } from './mine.js'
 
 export const statusTile = {
     HIDDEN: "hidden",
@@ -20,7 +20,7 @@ export default function createBoard(boardSize, numberOfMines) {
                 elem,
                 x,
                 y,
-
+                mine: minePosition.some(positionMatch.bind(null, { x, y })),
                 get status() {
                     return this.elem.dataset.status;
                 },

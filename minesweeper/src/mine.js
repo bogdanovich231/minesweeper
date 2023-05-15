@@ -1,17 +1,17 @@
-export default function createMine(boardSize, numberOfMines) {
+export function createMine(boardSize, numberOfMines) {
     const position = []
-    while (position.lenght < numberOfMines) {
+    while (position.length < numberOfMines) {
         const positions = {
             x: randomNumber(boardSize),
             y: randomNumber(boardSize),
         }
-        if (!position.some(positionMath.bind(null, positions))) {
+        if (!position.some(positionMatch.bind(null, position))) {
             position.push(positions)
         }
     }
     return position
 }
-function positionMath(a, b) {
+export function positionMatch(a, b) {
     return a.x === b.x && a.y === b.y
 }
 function randomNumber(size) {
