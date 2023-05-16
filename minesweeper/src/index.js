@@ -9,7 +9,9 @@ const sweeperSubtext = document.createElement("p");
 const sweeperBoard = document.createElement("div");
 const sweeperSpan = document.createElement("span");
 const sweeperTimer = document.createElement("span");
-const sweeperFields = document.createElement("div")
+const sweeperFields = document.createElement("div");
+const sweeperSteps = document.createElement("span");
+const sweeperRestart = document.createElement("button");
 
 const boardS = 10;
 const boardMines = 10;
@@ -18,18 +20,21 @@ sweeperTitle.className = "sweeper_title";
 sweeperSubtext.className = "sweeper_subtext";
 sweeperSpan.classList.add("sweeper_span");
 sweeperBoard.className = "sweeper_board";
-sweeperTimer.className = "sweeper_timer"
-sweeperFields.className = "sweeper_fields"
+sweeperTimer.className = "sweeper_timer";
+sweeperFields.className = "sweeper_fields";
+sweeperSteps.className = "sweeper_steps";
+sweeperRestart.className = "sweeper_restart";
 
 sweeperTitle.innerHTML = "RSS Minesweeper";
 sweeperSubtext.innerHTML = "Mines Left: ";
 sweeperTimer.innerHTML = "Time: ";
+sweeperSteps.innerHTML = "Open Tile: ";
+sweeperRestart.innerHTML = "Reset Game";
 
-sweeperFields.append(sweeperTitle, sweeperTimer, sweeperSubtext);
+sweeperFields.append(sweeperTitle, sweeperTimer, sweeperSubtext, sweeperSteps);
 document.body.append(sweeperFields, sweeperBoard);
 sweeperSubtext.append(sweeperSpan);
-
-
+document.body.append(sweeperRestart);
 
 
 export const board = createBoard(boardS, boardMines);
@@ -59,4 +64,4 @@ function minesLeft() {
 }
 
 
-export { sweeperBoard, sweeperSubtext, sweeperTimer };
+export { sweeperBoard, sweeperSubtext, sweeperTimer, sweeperSteps };

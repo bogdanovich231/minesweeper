@@ -1,4 +1,5 @@
 import { statusTile } from './board.js';
+import { incrementStep } from './stepsCount.js';
 import { startTimerGame, timerClass } from './timerGame.js';
 
 export function markTile(tile) {
@@ -13,6 +14,7 @@ export function markTile(tile) {
     } else {
         tile.status = statusTile.MARKED
     }
+    incrementStep();
 }
 
 export function openTile(board, tile) {
@@ -35,7 +37,7 @@ export function openTile(board, tile) {
         tile.elem.textContent = mines.length
     }
 
-
+    incrementStep();
 }
 
 export function nearbyTiles(board, { x, y }) {
