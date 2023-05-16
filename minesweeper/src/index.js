@@ -8,6 +8,8 @@ const sweeperTitle = document.createElement("h1");
 const sweeperSubtext = document.createElement("p");
 const sweeperBoard = document.createElement("div");
 const sweeperSpan = document.createElement("span");
+const sweeperTimer = document.createElement("span");
+const sweeperFields = document.createElement("div")
 
 const boardS = 10;
 const boardMines = 10;
@@ -16,12 +18,19 @@ sweeperTitle.className = "sweeper_title";
 sweeperSubtext.className = "sweeper_subtext";
 sweeperSpan.classList.add("sweeper_span");
 sweeperBoard.className = "sweeper_board";
+sweeperTimer.className = "sweeper_timer"
+sweeperFields.className = "sweeper_fields"
 
 sweeperTitle.innerHTML = "RSS Minesweeper";
-sweeperSubtext.innerHTML = "Mines Left:";
+sweeperSubtext.innerHTML = "Mines Left: ";
+sweeperTimer.innerHTML = "Time: ";
 
-document.body.append(sweeperTitle, sweeperSubtext, sweeperBoard);
+sweeperFields.append(sweeperTitle, sweeperTimer, sweeperSubtext);
+document.body.append(sweeperFields, sweeperBoard);
 sweeperSubtext.append(sweeperSpan);
+
+
+
 
 export const board = createBoard(boardS, boardMines);
 board.forEach(row => {
@@ -50,4 +59,4 @@ function minesLeft() {
 }
 
 
-export { sweeperBoard, sweeperSubtext };
+export { sweeperBoard, sweeperSubtext, sweeperTimer };

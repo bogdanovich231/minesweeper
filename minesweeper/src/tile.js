@@ -1,6 +1,10 @@
 import { statusTile } from './board.js';
+import { startTimerGame, timerClass } from './timerGame.js';
 
 export function markTile(tile) {
+    if (!timerClass) {
+        startTimerGame();
+    }
     if (tile.status !== statusTile.HIDDEN && tile.status !== statusTile.MARKED) {
         return
     }
@@ -12,6 +16,9 @@ export function markTile(tile) {
 }
 
 export function openTile(board, tile) {
+    if (!timerClass) {
+        startTimerGame();
+    }
     if (tile.status !== statusTile.HIDDEN) {
         return
     }
@@ -27,6 +34,8 @@ export function openTile(board, tile) {
     } else {
         tile.elem.textContent = mines.length
     }
+
+
 }
 
 export function nearbyTiles(board, { x, y }) {

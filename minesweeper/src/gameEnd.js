@@ -1,6 +1,7 @@
 import { board, sweeperBoard, sweeperSubtext } from "./index.js";
 import { statusTile } from "./board.js";
 import { markTile, openTile } from "./tile.js";
+import { startTimerGame, stopTimerGame } from "./timerGame.js";
 
 export function gameEnd() {
     const win = checkWin(board);
@@ -20,6 +21,9 @@ export function gameEnd() {
                 if (tile.mine) openTile(board, tile)
             })
         })
+        stopTimerGame()
+    } else {
+        startTimerGame()
     }
 }
 function checkWin(board) {
