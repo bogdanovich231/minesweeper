@@ -63,5 +63,8 @@ function minesLeft() {
     sweeperSpan.textContent = boardMines - markedTiles
 }
 
+sweeperRestart.addEventListener("click", () => {
+    location.reload();
+});
 
 export { sweeperBoard, sweeperSubtext, sweeperTimer, sweeperSteps };
