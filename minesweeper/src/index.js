@@ -2,6 +2,7 @@ import createBoard from './board.js';
 import './style.css';
 import { markTile, openTile } from './tile.js'
 import { statusTile } from "./board.js"
+import { gameEnd } from './gameEnd.js';
 
 const sweeperTitle = document.createElement("h1");
 const sweeperSubtext = document.createElement("p");
@@ -22,12 +23,13 @@ sweeperSubtext.innerHTML = "Mines Left:";
 document.body.append(sweeperTitle, sweeperSubtext, sweeperBoard);
 sweeperSubtext.append(sweeperSpan);
 
-const board = createBoard(boardS, boardMines);
+export const board = createBoard(boardS, boardMines);
 board.forEach(row => {
     row.forEach(tile => {
         sweeperBoard.append(tile.elem)
         tile.elem.addEventListener('click', () => {
             openTile(board, tile)
+            gameEnd()
         })
         tile.elem.addEventListener("contextmenu", e => {
             e.preventDefault()
@@ -46,3 +48,6 @@ function minesLeft() {
     }, 0)
     sweeperSpan.textContent = boardMines - markedTiles
 }
+
+
+export { sweeperBoard, sweeperSubtext };
