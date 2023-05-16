@@ -31,8 +31,8 @@ sweeperTimer.innerHTML = "Time: ";
 sweeperSteps.innerHTML = "Open Tile: ";
 sweeperRestart.innerHTML = "Reset Game";
 
-sweeperFields.append(sweeperTitle, sweeperTimer, sweeperSubtext, sweeperSteps);
-document.body.append(sweeperFields, sweeperBoard);
+sweeperFields.append(sweeperTimer, sweeperSubtext, sweeperSteps);
+document.body.append(sweeperTitle, sweeperFields, sweeperBoard);
 sweeperSubtext.append(sweeperSpan);
 document.body.append(sweeperRestart);
 

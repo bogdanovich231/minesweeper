@@ -19,7 +19,8 @@ body {
 .sweeper_subtext {
     color: #000000;
     font-size: 1.5rem;
-    margin-top: 10px;
+    margin-left: 35px;
+    margin-right: 35px;
 }
 
 .sweeper_board {
@@ -57,4 +58,20 @@ body {
 
 .sweeper_board>[data-status="marked"] {
     background-color: yellow;
+}
+
+.sweeper_restart {
+    border: none;
+    background: #000000;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 7px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sweeper_fields {
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
