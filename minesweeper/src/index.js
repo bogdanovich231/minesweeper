@@ -25,11 +25,14 @@ sweeperFields.className = "sweeper_fields";
 sweeperSteps.className = "sweeper_steps";
 sweeperRestart.className = "sweeper_restart";
 
+
 sweeperTitle.innerHTML = "RSS Minesweeper";
 sweeperSubtext.innerHTML = "Mines Left: ";
 sweeperTimer.innerHTML = "Time: ";
 sweeperSteps.innerHTML = "Open Tile: ";
 sweeperRestart.innerHTML = "Reset Game";
+
+
 
 sweeperFields.append(sweeperTimer, sweeperSubtext, sweeperSteps);
 document.body.append(sweeperTitle, sweeperFields, sweeperBoard);

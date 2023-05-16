@@ -1,7 +1,8 @@
 import { board, sweeperBoard, sweeperSubtext, sweeperTimer } from "./index.js";
 import { statusTile } from "./board.js";
 import { markTile, openTile } from "./tile.js";
-import { startTimerGame, stopTimerGame } from "./timerGame.js";
+import { stopTimerGame } from "./timerGame.js";
+import { playWinSound } from "./sound.js";
 
 export function gameEnd() {
     const win = checkWin(board);
@@ -11,7 +12,10 @@ export function gameEnd() {
         sweeperBoard.addEventListener('contextmenu', stopProp, { capture: true });
     }
     if (win) {
-        sweeperSubtext.textContent = 'You Win'
+        const gameDuration = stopTimerGame();
+        sweeperTimer.textContent = `Time: ${gameDuration}`;
+        sweeperSubtext.textContent = 'You Win';
+        playWinSound();
     }
     if (lose) {
         const gameDuration = stopTimerGame();

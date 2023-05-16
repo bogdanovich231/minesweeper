@@ -1,4 +1,5 @@
 import { statusTile } from './board.js';
+import { playClickSound, playLoseSound, playMarkedSound } from './sound.js';
 import { incrementStep } from './stepsCount.js';
 import { startTimerGame, timerClass } from './timerGame.js';
 
@@ -14,6 +15,7 @@ export function markTile(tile) {
     } else {
         tile.status = statusTile.MARKED
     }
+    playMarkedSound();
     incrementStep();
 }
 
@@ -25,6 +27,7 @@ export function openTile(board, tile) {
         return
     }
     if (tile.mine) {
+        playLoseSound();
         tile.status = statusTile.MINE
         return
     }
@@ -36,7 +39,7 @@ export function openTile(board, tile) {
     } else {
         tile.elem.textContent = mines.length
     }
-
+    playClickSound();
     incrementStep();
 }
 
