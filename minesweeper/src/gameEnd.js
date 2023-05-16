@@ -1,4 +1,4 @@
-import { board, sweeperBoard, sweeperSubtext } from "./index.js";
+import { board, sweeperBoard, sweeperSubtext, sweeperTimer } from "./index.js";
 import { statusTile } from "./board.js";
 import { markTile, openTile } from "./tile.js";
 import { startTimerGame, stopTimerGame } from "./timerGame.js";
@@ -14,6 +14,8 @@ export function gameEnd() {
         sweeperSubtext.textContent = 'You Win'
     }
     if (lose) {
+        const gameDuration = stopTimerGame();
+        sweeperTimer.textContent = `Time: ${gameDuration}`;
         sweeperSubtext.textContent = 'You Lose'
         board.forEach(row => {
             row.forEach(tile => {
@@ -21,9 +23,6 @@ export function gameEnd() {
                 if (tile.mine) openTile(board, tile)
             })
         })
-        stopTimerGame()
-    } else {
-        startTimerGame()
     }
 }
 function checkWin(board) {

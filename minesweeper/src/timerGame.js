@@ -8,6 +8,7 @@ export function startTimerGame() {
 }
 export function stopTimerGame() {
     clearInterval(timerClass);
+    return sec;
 }
 
 export function updateTimerGame() {
