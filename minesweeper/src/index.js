@@ -13,6 +13,9 @@ const sweeperFields = document.createElement("div");
 const sweeperSteps = document.createElement("span");
 const sweeperRestart = document.createElement("button");
 
+const sweeperMode = document.createElement("div");
+const sweeperModeToggle = document.createElement("div");
+
 const boardS = 10;
 const boardMines = 10;
 
@@ -24,7 +27,8 @@ sweeperTimer.className = "sweeper_timer";
 sweeperFields.className = "sweeper_fields";
 sweeperSteps.className = "sweeper_steps";
 sweeperRestart.className = "sweeper_restart";
-
+sweeperMode.className = "sweeper_mode_night"
+sweeperModeToggle.className = "toggle_circle";
 
 sweeperTitle.innerHTML = "RSS Minesweeper";
 sweeperSubtext.innerHTML = "Mines Left: ";
@@ -35,9 +39,11 @@ sweeperRestart.innerHTML = "Reset Game";
 
 
 sweeperFields.append(sweeperTimer, sweeperSubtext, sweeperSteps);
-document.body.append(sweeperTitle, sweeperFields, sweeperBoard);
+document.body.append(sweeperTitle, sweeperMode, sweeperFields, sweeperBoard);
 sweeperSubtext.append(sweeperSpan);
 document.body.append(sweeperRestart);
+sweeperMode.append(sweeperModeToggle);
+
 
 
 export const board = createBoard(boardS, boardMines);
@@ -69,5 +75,11 @@ function minesLeft() {
 sweeperRestart.addEventListener("click", () => {
     location.reload();
 });
+
+sweeperMode.addEventListener('click', function () {
+    sweeperModeToggle.classList.toggle('active');
+    sweeperMode.classList.toggle('active');
+    sweeperBoard.classList.toggle('active');
+})
 
 export { sweeperBoard, sweeperSubtext, sweeperTimer, sweeperSteps };
