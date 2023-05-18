@@ -61,12 +61,21 @@ body {
 
 .sweeper_restart {
     border: none;
-    background: #000000;
-    color: white;
+    background: white;
+    color: #777;
     padding: 10px 20px;
     border-radius: 7px;
     margin-top: 20px;
     margin-bottom: 20px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.sweeper_restart:hover {
+    background: #777;
+    color: white;
+    transition: 1s;
+    border: none;
 }
 
 .sweeper_fields {

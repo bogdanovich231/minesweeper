@@ -12,7 +12,6 @@ const sweeperTimer = document.createElement("span");
 const sweeperFields = document.createElement("div");
 const sweeperSteps = document.createElement("span");
 const sweeperRestart = document.createElement("button");
-
 const sweeperMode = document.createElement("div");
 const sweeperModeToggle = document.createElement("div");
 
@@ -37,14 +36,11 @@ sweeperSteps.innerHTML = "Open Tile: ";
 sweeperRestart.innerHTML = "Reset Game";
 
 
-
 sweeperFields.append(sweeperTimer, sweeperSubtext, sweeperSteps);
 document.body.append(sweeperTitle, sweeperMode, sweeperFields, sweeperBoard);
 sweeperSubtext.append(sweeperSpan);
 document.body.append(sweeperRestart);
 sweeperMode.append(sweeperModeToggle);
-
-
 
 export const board = createBoard(boardS, boardMines);
 board.forEach(row => {

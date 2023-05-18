@@ -10,7 +10,6 @@ export const statusTile = {
 export default function createBoard(boardSize, numberOfMines) {
     const board = [];
     const minePosition = createMine(boardSize, numberOfMines)
-    console.log(minePosition)
     for (let x = 0; x < boardSize; x++) {
         const row = [];
         for (let y = 0; y < boardSize; y++) {
