@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -20,7 +21,8 @@ module.exports = {
             patterns: [
                 { from: 'src/mp3', to: 'audio' } // Замените 'src/audio' на путь к вашей папке с аудиофайлами
             ]
-        })
+        }),
+        new ESLintPlugin(options)
     ],
     module: {
         rules: [
