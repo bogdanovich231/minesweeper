@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #aca8a8;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    flex-direction: column;
+    color: #000000;
+}
+
+.sweeper_title {
+    margin: 20px;
+}
+
+.sweeper_subtext {
+    color: #000000;
+    font-size: 1.5rem;
+    margin-left: 35px;
+    margin-right: 35px;
+}
+
+.sweeper_board {
+    display: inline-grid;
+    padding: 15px;
+    grid-template-columns: repeat(var(--size), 60px);
+    grid-template-rows: repeat(var(--size), 60px);
+    gap: 4px;
+    background-color: #777;
+}
+
+.sweeper_board>* {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #BBB;
+    user-select: none;
+}
+
+.sweeper_board>[data-status="hidden"] {
+    background-color: #BBB;
+    cursor: pointer;
+}
+
+.sweeper_board>[data-status="mine"] {
+    background-color: red;
+}
+
+.sweeper_board>[data-status="number"] {
+    background-color: none;
+}
+
+.sweeper_board>[data-status="marked"] {
+    background-color: yellow;
+}
+
+.sweeper_restart {
+    border: none;
+    background: white;
+    color: #777;
+    padding: 10px 20px;
+    border-radius: 7px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.sweeper_restart:hover {
+    background: #777;
+    color: white;
+    transition: 1s;
+    border: none;
+}
+
+.sweeper_fields {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+@media (max-width: 750px) {
+    .sweeper_board {
+        grid-template-columns: repeat(var(--size), 30px);
+        grid-template-rows: repeat(var(--size), 30px);
+    }
+
+    span,
+    .sweeper_subtext {
+        font-size: 1.3rem;
+    }
+
+    .sweeper_subtext {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .sweeper_title {
+        margin: 10px;
+    }
+}
+
+
+
+.sweeper_mode_night {
+    width: 80px;
+    height: 30px;
+    background-color: #5e5e5e;
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.sweeper_mode_night.active {
+    background-color: #5e5d5d;
+}
+
+.sweeper_mode_night {
+    background-color: #faf5f5;
+}
+
+.toggle_circle {
+    width: 20px;
+    height: 20px;
+    background-color: rgb(80, 80, 80);
+    border-radius: 50px;
+    margin: 0 5px;
+    position: absolute;
+    left: 0;
+    transition: .2s;
+}
+
+.toggle_circle.active {
+    left: 60%;
+    background-color: #f5f1f1;
+}
+
+.sweeper_board.active {
+    background-color: #f7f7f7;
+}
